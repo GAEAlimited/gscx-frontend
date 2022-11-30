@@ -269,7 +269,7 @@ function Home({ initialRates }: InferGetServerSidePropsType<typeof getServerSide
             </>
           ) : (
             <>
-              {/* <SponsorBlock link="https://unifees.io/dxfees/dx_presale/" /> */}
+              {/* <SponsorBlock link="https://arena.zilchill.com/arena/the-leos-civil-war-rAFd-Hivj" /> */}
 
               <RatesBlock
                 title="ZIL"
