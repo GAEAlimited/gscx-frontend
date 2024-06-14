@@ -56,7 +56,7 @@ const MarketBar = () => {
                 <a className="font-normal hover:underline">
                   <span>{currencyFormat(liquidity * selectedCurrency.rate, selectedCurrency.symbol)}</span>
                   <span className="mx-1">-</span>
-                  <span>{currencyFormat(liquidity, '')} ZIL</span>
+                  <span>{currencyFormat(liquidity, '')} GSC</span>
                 </a>
               </Link>
             </div>
