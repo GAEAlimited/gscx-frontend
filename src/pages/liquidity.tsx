@@ -40,12 +40,12 @@ const Liquidity = ({ stats }: InferGetServerSidePropsType<typeof getServerSidePr
   const [maxAP, setMaxAP] = useState<number>(8)
 
   tokens.forEach(token => {
-    if(token.symbol === 'ZWAP') {
+    if(token.symbol === 'GSC') {
       token.aps = 40
       return
     }
 
-    if(token.symbol === 'BOLT') {
+    if(token.symbol === 'XBTA') {
       token.aps = 0
       return
     }
@@ -91,13 +91,13 @@ const Liquidity = ({ stats }: InferGetServerSidePropsType<typeof getServerSidePr
   return (
     <>  
       <Head>
-        <title>ZilSwap Liquidity | ZilStream</title>
-        <meta property="og:title" content={`ZilSwap Liquidity | ZilStream`} />
+        <title>$uperChain Liquidity | GSCxBT.com</title>
+        <meta property="og:title" content={`$uperChain Liquidity | GSCxBT.com`} />
       </Head>
       <div className="pt-8 pb-2 md:pb-8">
         <div className="flex flex-col lg:flex-row items-start">
           <div className="flex-grow">
-            <h1 className="mb-1">ZilSwap</h1>
+            <h1 className="mb-1">GSCxBT.com</h1>
           </div>
         </div>
       </div>
@@ -137,6 +137,10 @@ const Liquidity = ({ stats }: InferGetServerSidePropsType<typeof getServerSidePr
             <tr>
               <th className="pl-3 pr-2 py-2 text-left">Token</th>
               <th className="px-2 py-2 text-right">Reserve</th>
+               <th className="pl-3 pr-2 py-2 text-left">Vault</th>
+               <th className="pl-3 pr-2 py-2 text-left">Assets</th>
+               <th className="pl-3 pr-2 py-2 text-left">Bonds</th>
+               <th className="pl-3 pr-2 py-2 text-left">Native</th>
               <th className="px-2 py-2 text-right">Liquidity</th>
               <th className="px-2 py-2 text-right">Volume (EMA30)</th>
               <th className="px-2 py-2 text-right">Liquidity (EMA30)</th>
@@ -169,18 +173,18 @@ const Liquidity = ({ stats }: InferGetServerSidePropsType<typeof getServerSidePr
                     </Link>
                   </td>
                   <td className="px-2 py-2 font-normal text-right">
-                    <div>{cryptoFormat(token.zil_reserve)} <span className="font-medium">ZIL</span></div>
+                    <div>{cryptoFormat(token.zil_reserve)} <span className="font-medium">GSC</span></div>
                     <div>{cryptoFormat(token.token_reserve)} <span className="font-medium">{token.symbol}</span></div>
                   </td>
                   <td className="px-2 py-2 font-normal text-right">
                     <div>{currencyFormat(token.liquidity)}</div>
-                    <div>{cryptoFormat(token.liquidity_zil)} <span className="font-medium">ZIL</span></div>
+                    <div>{cryptoFormat(token.liquidity_zil)} <span className="font-medium">GSC</span></div>
                   </td>
                   <td className="px-2 py-2 font-normal text-right">
-                    {numberFormat(token.volume_ema30_zil, 0)} <span className="font-medium">ZIL</span>
+                    {numberFormat(token.volume_ema30_zil, 0)} <span className="font-medium">GSC</span>
                   </td>
                   <td className={`px-2 py-2 font-normal text-right`}>
-                    {numberFormat(token.liquidity_ema30_zil, 0)} <span className="font-medium">ZIL</span>
+                    {numberFormat(token.liquidity_ema30_zil, 0)} <span className="font-medium">GSC</span>
                   </td>
                   <td className={`px-2 py-2 font-normal text-right`}>
 
@@ -192,9 +196,9 @@ const Liquidity = ({ stats }: InferGetServerSidePropsType<typeof getServerSidePr
                     
                   </td>
                   <td className={`pl-2 pr-3 py-2 text-right ${index === 0 ? 'rounded-tr-lg' : ''} ${index === tokens.length-1 ? 'rounded-br-lg' : ''}`}>
-                    {token.liquidity_ema30_zil >= minimumLiquidity && token.symbol !== 'BOLT' ? (
+                    {token.liquidity_ema30_zil >= minimumLiquidity && token.symbol !== 'GAEA' ? (
                       <div>
-                        <div>{numberFormat(zwapAmount, 2)} ZWAP</div>
+                        <div>{numberFormat(zwapAmount, 2)} XBTA</div>
                         <div className="text-xs text-gray-500 dark:text-gray-400">{apr.toFixed(2)}% APR</div>
                       </div>
                     ) : (
